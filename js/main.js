@@ -1,225 +1,11 @@
-const productos = [
-    
-   {
-    id: "Alimento-01",
-    titulo: "Alimento para perro 01",
-    imagen: "./img/p01.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 24675
-   }, 
-       
-   {
-    id: "Alimento-02",
-    titulo: "Alimento para perro 02",
-    imagen: "./img/p02.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 7350
-   }, 
-       
-   {
-    id: "Alimento-03",
-    titulo: "Alimento para perro 03",
-    imagen: "./img/p03.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 22600
-   }, 
-       
-   {
-    id: "Alimento-04",
-    titulo: "Alimento para perro 04",
-    imagen: "./img/p04.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 7350
-   }, 
-       
-   {
-    id: "Alimento-05",
-    titulo: "Alimento para perro 05",
-    imagen: "./img/p05.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 6575
-   }, 
-       
-   {
-    id: "Alimento-06",
-    titulo: "Alimento para perro 06",
-    imagen: "./img/p06.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 6940
-   }, 
-       
-   {
-    id: "Alimento-07",
-    titulo: "Alimento para gato 07",
-    imagen: "./img/g07.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 7450
-   }, 
-         
-   {
-    id: "Alimento-08",
-    titulo: "Alimento para gato 08",
-    imagen: "./img/g08.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 10570
-   }, 
-         
-   {
-    id: "Alimento-09",
-    titulo: "Alimento para gato 09",
-    imagen: "./img/g09.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 9400
-   }, 
-         
-   {
-    id: "Alimento-10",
-    titulo: "Alimento para gato 10",
-    imagen: "./img/g10.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 8675
-   }, 
-         
-   {
-    id: "Alimento-11",
-    titulo: "Alimento para gato 11",
-    imagen: "./img/g11.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 9360
-   }, 
-         
-   {
-    id: "Alimento-12",
-    titulo: "Alimento para gato 12",
-    imagen: "./img/g12.jpg",
-    categoria: {
-        nombre: "Alimentos",
-        id: "alimentos",
-    },
-    precio: 8150
-   }, 
-         
-   {
-    id: "camas-01",
-    titulo: "Cama 1",
-    imagen: "./img/c01.jpg",
-    categoria: {
-        nombre: "Camas",
-        id: "camas",
-    },
-    precio: 9500
-   }, 
-          
-   {
-    id: "camas-02",
-    titulo: "Cama 2",
-    imagen: "./img/c02.jpg",
-    categoria: {
-        nombre: "Camas",
-        id: "camas",
-    },
-    precio: 12000
-   }, 
-           
-   {
-    id: "camas-03",
-    titulo: "Cama 3",
-    imagen: "./img/c03.jpg",
-    categoria: {
-        nombre: "Camas",
-        id: "camas",
-    },
-    precio: 13500
-   }, 
-           
-   {
-    id: "juguetes-01",
-    titulo: "Juguete 01",
-    imagen: "./img/j01.jpg",
-    categoria: {
-        nombre: "Juguetes",
-        id: "juguetes",
-    },
-    precio: 2350
-   },
+let productos = [];
 
-   {
-    id: "juguetes-02",
-    titulo: "Juguete 02",
-    imagen: "./img/j02.jpg",
-    categoria: {
-        nombre: "Juguetes",
-        id: "juguetes",
-    },
-    precio: 1999
-   }, 
-      
-   {
-    id: "juguetes-03",
-    titulo: "Juguete 03",
-    imagen: "./img/j03.jpg",
-    categoria: {
-        nombre: "Juguetes",
-        id: "juguetes",
-    },
-    precio: 3200
-   }, 
-      
-   {
-    id: "juguetes-04",
-    titulo: "Juguete 04",
-    imagen: "./img/j04.jpg",
-    categoria: {
-        nombre: "Juguetes",
-        id: "juguetes",
-    },
-    precio: 2999
-   }, 
-      
-   {
-    id: "juguetes-05",
-    titulo: "Juguete 05",
-    imagen: "./img/j05.jpg",
-    categoria: {
-        nombre: "Juguetes",
-        id: "juguetes",
-    },
-    precio: 2700
-   }  
-];
+fetch("./js/productos.json")
+    .then(response => response.json ())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const btnCategorias = document.querySelectorAll(".btn-categoria");
@@ -250,7 +36,6 @@ function cargarProductos(productosElegidos) {
     actualizarBtnAgregar();
 }
 
-cargarProductos(productos);
 
 btnCategorias.forEach(boton => {
     boton.addEventListener("click", (e) => {
@@ -295,6 +80,25 @@ if (productosEnCarritoLS) {
 
 
 function agregarAlCarrito(e) {
+
+    Toastify({
+        text: "Producto agregado!",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #AA5042, #af675c)",
+          borderRadius: "1.5rem",
+          fontSize: ".75rem"
+        },
+        offset: {
+            x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: "1.5rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
