@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside>
+            <header>
+                <h1 class="logo">Pet Shop</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="btn-menu btn-volver" href="./index.html">
+                            <i class='bx bx-arrow-back'></i> Seguir comprando
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn-menu btn-carrito active" href="./carrito.html">
+                            <i class='bx bx-cart'></i> Carrito
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="txt-footer">© Alex Nass</p>
+            </footer>
+        </aside>
+
+        <main>
+            <h2 class="titulo-principal">Carrito</h2>
+            <div class="contenedor-carrito">
+                <p id="carrito-vacio" class="carrito-vacio">Tu carrito esta vacio. <i class='bx bx-sad' ></i></p>
+            
+                <div id="carrito-productos" class="carrito-productos disabled">
+
+                    <!-- ////    JS ACA    //// -->
+
+                </div>
+
+                <div id="carrito-acciones" class="carrito-acciones disabled">
+                    <div class="carrito-acciones-izquierda">
+                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
+                    </div>
+                    <div class="carrito-acciones-derecha">
+                        <div class="carrito-acciones-total">
+                            <p>Total:</p>
+                            <p id="total">$3500</p>
+                        </div>
+                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
+                    </div>
+
+                </div>
+
+                <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu compra. <i class='bx bx-happy-alt' ></i></p>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="./js/carrito.js"></script>
+</body>
+
+</html>

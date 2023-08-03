@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <aside>
+            <header>
+                <h1 class="logo">Pet Shop</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                <li>
+                    <button id="all" class="btn-menu btn-categoria active"><i class='bx bxs-bone'></i>Todos los productos</button>
+                </li>
+                <li>
+                    <button id="alimentos" class="btn-menu btn-categoria"><i class='bx bx-bone' ></i>Alimento</button>
+                </li>
+                <li>
+                    <button id="juguetes" class="btn-menu btn-categoria"><i class='bx bx-bone' ></i>Juguetes</button>
+                </li>
+                <li>
+                    <button id="camas" class="btn-menu btn-categoria"><i class='bx bx-bone' ></i>Camas</button>
+                </li>
+                <li>
+                    <a class="btn-menu btn-carrito" href="./carrito.html">
+                        <i class='bx bx-cart' ></i>Carrito <span id="numerito" class="num">0</span>
+                    </a>
+                </li>
+            </ul>
+            </nav>
+            <footer>
+                <p class="txt-footer">© Alex Nass</p> 
+            </footer>
+        </aside>
+
+        <main>
+            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!-- ////    JS ACA    //// -->
+            </div>
+        </main>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
+
